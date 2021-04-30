@@ -1,7 +1,6 @@
 package interfaces.school;
-
-import static school.Data.*;
-import static school.test.Assert.*;
+import static interfaces.school.ISalary.FOR_TC_PER_WEEK;
+import static interfaces.school.test.Assert.aAssert;
 
 public class School {
 
@@ -31,21 +30,24 @@ public class School {
         Teacher teacher1 = new Teacher("Maria Ivanovna", "Petrova", 'F', 35,
                 "school.Teacher", "Russian Literature", 2, FOR_TC_PER_WEEK);
 
+        ISalary salaryForTeacher1 = teacher1;
+
+        ISalary salaryForTeacher2 = new Teacher("Ivan Petrovich", "Petrov", 'M', 55,
+                "teacher", "Math", 1, FOR_TC_PER_WEEK);
 
         Parent[] parents = new Parent[]{parent1, parent2};
 
+        parent1.printParent();
+        parent2.printParent();
+        parent3.printParent();
 
-//        parent1.printParent();
-//        parent2.printParent();
-//        parent3.printParent();
-//
-//        System.out.println(LINE);
-//
-//        student1.printParent(parents);
-//
-//        System.out.println(LINE);
-//
-//        teacher1.printTeacher();
+        System.out.println(LINE);
+
+        student1.printParent(parents);
+
+        System.out.println(LINE);
+
+        teacher1.printTeacher();
 
         aAssert(EXPECTED_BASE_SALARY, teacher1.getBaseSalary());
         aAssert(EXPECTED_PAY_CHECK, teacher1.getSalary());
